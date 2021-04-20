@@ -3,7 +3,11 @@ include 'classes/Mysqli.php';
 include 'classes/PDO.php';
 include 'classes/Adodb.php';
 include 'classes/Odbc.php';
-$selected = $_GET['used'];
+include 'classes/SQLServer.php';
+if(isset($_GET['used'])){
+    $selected = $_GET['used'];
+}
+
 $boto = 'insereix';
 
 
@@ -11,7 +15,7 @@ if (isset($_POST['send'])) {
     $selected = $_POST['objects'];
     header('Location: http://localhost/conectors?used=' . $selected);
 }
-$possible_connections = array('Mysqli', 'Adodb', 'Pdo', 'ODBC');
+$possible_connections = array('Mysqli', 'Adodb', 'Pdo', 'SQLServer');
 
 echo "<h3>Selecciona una connexió de BD</h3>";
 echo '<form method="post" name="f1">
@@ -47,7 +51,7 @@ if (isset($_GET['used'])) {
             $obj = new PDO2();
             break;
         case 3:
-            $obj = new ODBC2();
+            $obj = new sqlsrv();
             break;
         default:
             header("Refresh:0");

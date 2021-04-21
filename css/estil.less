@@ -1,22 +1,97 @@
 html {
     body {
 
-        .info-container,
-        .insert-container {
+        .titol {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-weight: bolder;
+            font-size: 24px;
+        }
+
+        .top-container {
+            background-color: rgb(247, 168, 0);
+            padding: 10px;
+            font-size: 22px;
+
+            button {
+                cursor: pointer;
+                background-color: #000000;
+                /* Green */
+                border: none;
+                color: white;
+                padding: 10px 22px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 13px;
+
+                &:hover {
+                    color: rgb(249, 253, 17);
+                }
+            }
+        }
+
+        .info-container {
+            margin-top: 10px;
             display: flex;
             justify-content: space-evenly;
+
+            .card {
+                border-radius: 25px;
+
+                h2 {
+                    font-weight: bold;
+                    font-size: 18px;
+                    text-align: center;
+                    margin-bottom: 12px;
+                }
+
+                .taula {
+                    border-top-left-radius: 5px;
+                    border-top-right-radius: 5px;
+                    background-color: rgb(30, 196, 15);
+
+                    table,
+                    td,
+                    th {
+                        border: 1px solid black;
+                    }
+
+                    td {
+                        padding: 5px;
+                        text-align: center;
+                    }
+
+                    table {
+                        background-color: white;
+                        width: 100%;
+                        border-collapse: collapse;
+                    }
+
+                    padding: 10px;
+
+
+                }
+
+                .insert-container {
+                    padding: 10px;
+                    border-bottom-left-radius: 5px;
+                    border-bottom-right-radius: 5px;
+                    background-color: rgba(161, 240, 227, 0.897);
+
+                    div {
+                        margin-top: 10px;
+                        border: 1px solid black;
+                        padding: 10px;
+                    }
+                }
+
+            }
+
         }
 
         .centrar {
             text-align: center;
-        }
-
-        .insert-container {
-            div {
-                margin-top: 10px;
-                border: 1px solid black;
-                padding: 10px;
-            }
         }
     }
 }

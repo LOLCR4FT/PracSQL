@@ -1,13 +1,74 @@
-html body .info-container,
-html body .insert-container {
+html body .titol {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-weight: bolder;
+  font-size: 24px;
+}
+html body .top-container {
+  background-color: #f7a800;
+  padding: 10px;
+  font-size: 22px;
+}
+html body .top-container button {
+  cursor: pointer;
+  background-color: #000000;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+}
+html body .top-container button:hover {
+  color: #f9fd11;
+}
+html body .info-container {
+  margin-top: 10px;
   display: flex;
   justify-content: space-evenly;
 }
-html body .centrar {
+html body .info-container .card {
+  border-radius: 25px;
+}
+html body .info-container .card h2 {
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+html body .info-container .card .taula {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #1ec40f;
+  padding: 10px;
+}
+html body .info-container .card .taula table,
+html body .info-container .card .taula td,
+html body .info-container .card .taula th {
+  border: 1px solid black;
+}
+html body .info-container .card .taula td {
+  padding: 5px;
   text-align: center;
 }
-html body .insert-container div {
+html body .info-container .card .taula table {
+  background-color: white;
+  width: 100%;
+  border-collapse: collapse;
+}
+html body .info-container .card .insert-container {
+  padding: 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: rgba(161, 240, 227, 0.897);
+}
+html body .info-container .card .insert-container div {
   margin-top: 10px;
   border: 1px solid black;
   padding: 10px;
+}
+html body .centrar {
+  text-align: center;
 }

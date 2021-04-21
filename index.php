@@ -3,6 +3,7 @@
 <head>
     <title>title</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
     <link rel="stylesheet" type="text/css" href="css/estil.css" />
 </head>
 
@@ -28,8 +29,8 @@
         header('Location: http://localhost/conectors?used=' . $selected);
     }
     $possible_connections = array('Mysqli', 'Adodb', 'Pdo', 'SQLServer');
-
-    echo "<h3>Selecciona una connexió de BD</h3>";
+    echo "<div class='top-container'>";
+    echo "<h3>Selecciona una connexió de BD</h3><br>";
     echo '<form method="post" name="f1">
     <select name="objects">';
 
@@ -42,8 +43,8 @@
     }
 
     echo '</select><br><br>
-    <input type="submit" name="send" value="Selecciona"/>
-</form><hr>';
+    <button type="submit" name="send">Selecciona</button>
+</form></div>';
 
     //en cas de que seleccioni metode mostrar la parafernalia
 
@@ -137,9 +138,23 @@
         }
 
         //dibuixar una taula
-        echo "<h2 class='centrar'>Taula autors - SGBD utilitzat: " . $possible_connections[$_GET['used']] . " </h2>";
+        echo "<h2 class='centrar titol'>SGBD utilitzat: " . $possible_connections[$_GET['used']] . " </h2>";
+
         echo "<div class='info-container'>";
+        echo "<div class='card'>";
+        echo "<div class='taula'><h2 class='centrar'>Autors</h2>";
         $obj->showAutors();
+        echo "</div>";
+        echo '<div class="insert-container">
+            <h2>Inserció / Edició d\'autor</h2>
+            <form method="post" action="#" name="f2">
+                Nom: <input type="text" value="' . $nom . '" name="nom" /><br>
+                Data Naixement: <input type="text" value="' . $dNaix . '" name="dnaix" /><br>
+                <input type="submit" value="' . $boto . '" name="ins" />
+            </form> 
+        </div></div>';
+        echo "<div class='card'>";
+        echo "<div class='taula'><h2 class='centrar'>Llibres</h2>";
         if (!isset($_GET["autor"])) {
             $obj->showLlibres();
         } else {
@@ -147,15 +162,6 @@
         }
         echo "</div>";
         echo '<div class="insert-container">
-        <div>
-            <h2>Inserció / Edició d\'autor</h2>
-            <form method="post" action="#" name="f2">
-                Nom: <input type="text" value="' . $nom . '" name="nom" /><br>
-                Data Naixement: <input type="text" value="' . $dNaix . '" name="dnaix" /><br>
-                <input type="submit" value="' . $boto . '" name="ins" />
-            </form> 
-        </div>   
-        <div>
             <h2>Inserció / Edició de llibres</h2>
             <form method="post" action="#" name="f2">
             Autor: ';
@@ -165,9 +171,9 @@
                 Any publicació: <input type="text" value="' . $any . '" name="any" /><br>
                 <input type="submit" value="' . $boto2 . '" name="ins2"/>
             </form> 
-        </div>
-    </div>
-    ';
+        </div></div>';
+        //info container
+        echo "</div>";
     }
     ?>
 </body>

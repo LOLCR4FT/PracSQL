@@ -12,7 +12,6 @@
     include 'classes/Mysqli.php';
     include 'classes/PDO.php';
     include 'classes/Adodb.php';
-    include 'classes/Odbc.php';
     include 'classes/SQLServer.php';
     if (isset($_GET['used'])) {
         $selected = $_GET['used'];
@@ -67,7 +66,7 @@
                 $obj = new sqlsrv();
                 break;
             default:
-                header("Refresh:0");
+                header("Location: http://localhost/conectors");
         }
 
         if (isset($_GET['dA'])) {
@@ -159,6 +158,7 @@
             $obj->showLlibres();
         } else {
             $obj->showLLibreAutor($_GET["autor"]);
+            $autor = $_GET["autor"];
         }
         echo "</div>";
         echo '<div class="insert-container">

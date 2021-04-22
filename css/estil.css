@@ -1,8 +1,15 @@
+html {
+  height: 100%;
+}
+html body {
+  background-color: #272626;
+}
 html body .titol {
   margin-top: 10px;
   margin-bottom: 20px;
   font-weight: bolder;
   font-size: 24px;
+  color: #f7a800;
 }
 html body .top-container {
   background-color: #f7a800;
@@ -41,7 +48,7 @@ html body .info-container .card h2 {
 html body .info-container .card .taula {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  background-color: #1ec40f;
+  background-color: #f7a800;
   padding: 10px;
 }
 html body .info-container .card .taula table,
@@ -62,7 +69,7 @@ html body .info-container .card .insert-container {
   padding: 10px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  background-color: rgba(161, 240, 227, 0.897);
+  background-color: lightgray;
 }
 html body .info-container .card .insert-container div {
   margin-top: 10px;

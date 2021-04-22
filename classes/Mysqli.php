@@ -195,4 +195,17 @@ class Mysqli2
         $stmt->bind_param("ssii", $data['id_autor'], $data['titol'], $data['any'], $data['id']);
         $stmt->execute();
     }
+
+    function deleteLlibre($id)
+    {
+        if ($stmt = $this->con->prepare("DELETE FROM llibre where id=?")) {
+
+            /* ligar parámetros para marcadores */
+            $stmt->bind_param("i", $id);
+            /* ejecutar la consulta */
+            $stmt->execute();
+            /* cerrar sentencia */
+            $stmt->close();
+        }
+    }
 }

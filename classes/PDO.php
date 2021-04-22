@@ -160,17 +160,21 @@ class PDO2
 
     function insertLlibre($data)
     {
-        $stmt = $this->con->prepare("insert into llibre(id_autor,titol,any) values(?,?,?)");
+        $stmt = $this->con->prepare("insert into llibre(id_autor,titol,any) values(:id_a,:titol,:any)");
 
-        $stmt->bind_param("isi", $data['id_autor'], $data['titol'], $data['any']);
-        $stmt->execute();
+        $stmt->execute(array(':id_a' => $data['id_autor'], ':titol' => $data['titol'], ':any' => $data['any']));
     }
 
     function editLlibre($data)
     {
-        $stmt = $this->con->prepare("update llibre set id_autor=?, titol=?, any=? where id=?");
+        $stmt = $this->con->prepare("update llibre set id_autor=:id_autor, titol=:titol, any=:any where id=:id");
 
-        $stmt->bind_param("ssii", $data['id_autor'], $data['titol'], $data['any'], $data['id']);
-        $stmt->execute();
+        $stmt->execute(array('id_autor' => $data['id_autor'], 'titol' => $data['titol'], 'any' => $data['any'], 'id' => $data['id']));
+    }
+
+    function deleteLlibre($id)
+    {
+        $stmt = $this->con->prepare("DELETE FROM llibre where id=:ID");
+        $stmt->execute(array(':ID' => $id));
     }
 }

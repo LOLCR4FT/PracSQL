@@ -116,6 +116,10 @@
             $boto2 = 'Edita';
         }
 
+        if (isset($_GET['dL'])) {
+            $obj->deleteLlibre($_GET['dL']);
+        }
+
         if (isset($_POST['ins'])) {
             if (isset($_GET['eA'])) {
                 $data = array(

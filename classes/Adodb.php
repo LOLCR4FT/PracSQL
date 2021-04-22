@@ -145,4 +145,10 @@ class Adodb2
         $stmt = $this->con->Prepare("update llibre set id_autor=?, titol=?, any=? where id=?");
         $this->con->Execute($stmt, array($data['id_autor'], $data['titol'], $data['any'], $data['id']));
     }
+
+    function deleteLlibre($id)
+    {
+        $stmt = $this->con->Prepare("DELETE FROM llibre where id=?");
+        $this->con->Execute($stmt, array($id));
+    }
 }

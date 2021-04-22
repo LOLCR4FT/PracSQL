@@ -177,4 +177,18 @@ class PDO2
         $stmt = $this->con->prepare("DELETE FROM llibre where id=:ID");
         $stmt->execute(array(':ID' => $id));
     }
+
+    function hasBooks($id)
+    {
+        if ($id) {
+            $stmt = $this->con->prepare("SELECT id FROM llibre WHERE id_autor=:id");
+            $stmt->execute(array(':id' => $id));
+
+            $result = $stmt->fetchAll();
+            if (count($result) != 0) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -4,6 +4,11 @@ html {
 html body {
   background-color: #272626;
 }
+html body .error {
+  text-align: center;
+  font-size: 30px;
+  background-color: white;
+}
 html body .titol {
   margin-top: 10px;
   margin-bottom: 20px;

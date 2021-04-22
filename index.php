@@ -43,7 +43,7 @@
 
     echo '</select><br><br>
     <button type="submit" name="send">Selecciona</button>
-</form></div>';
+    </form></div>';
 
     //en cas de que seleccioni metode mostrar la parafernalia
 
@@ -69,9 +69,21 @@
                 header("Location: http://localhost/conectors");
         }
 
+        if (isset($_GET['error'])) {
+            echo '<script type="text/javascript">';
+            echo 'alert("Aquest autor té llibres assignats, esborrals i podras esborrar-lo");';
+            echo 'window.location.href = "?used=' . $selected . '";';
+            echo '</script>';
+        }
+
         if (isset($_GET['dA'])) {
-            $obj->deleteAutor($_GET['dA']);
-            header('Location: http://localhost/conectors?used=' . $selected);
+            $hasLlibres = $obj->hasBooks($_GET['dA']);
+            if (!$hasLlibres) {
+                $obj->deleteAutor($_GET['dA']);
+                header('Location: http://localhost/conectors?used=' . $selected . '');
+                return;
+            }
+            header('Location: http://localhost/conectors?used=' . $selected . '&error=0');
         }
 
         if (isset($_GET['eA'])) {

@@ -208,4 +208,30 @@ class Mysqli2
             $stmt->close();
         }
     }
+
+    function hasBooks($id)
+    {
+        if ($stmt = $this->con->prepare("SELECT id FROM llibre WHERE id_autor=?")) {
+
+            /* ligar parámetros para marcadores */
+            $stmt->bind_param("i", $id);
+
+            /* ejecutar la consulta */
+            $stmt->execute();
+
+            /* ligar variables de resultado */
+            $stmt->bind_result($col1);
+
+            /* obtener valor */
+            $stmt->fetch();
+
+            /* cerrar sentencia */
+            $stmt->close();
+
+            if ($col1 != null) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

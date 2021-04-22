@@ -151,4 +151,16 @@ class Adodb2
         $stmt = $this->con->Prepare("DELETE FROM llibre where id=?");
         $this->con->Execute($stmt, array($id));
     }
+
+    function hasBooks($id)
+    {
+        if ($id) {
+            $stmt = $this->con->prepare("SELECT id FROM llibre WHERE id_autor=?");
+            $result = $this->con->Execute($stmt, array($id));
+            if ($row = $result->FetchRow()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
